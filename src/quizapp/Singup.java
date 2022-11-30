@@ -66,6 +66,7 @@ public class Singup extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address");
 
+        jNationality.setBackground(new java.awt.Color(240, 62, 65));
         jNationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Bangladesh", "India", "USA", "Canada" }));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,7 +88,7 @@ public class Singup extends javax.swing.JFrame {
             }
         });
 
-        jBackLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jBackLogin.setBackground(new java.awt.Color(255, 255, 0));
         jBackLogin.setText("<<Back");
         jBackLogin.setAlignmentX(2.0F);
         jBackLogin.setAlignmentY(2.0F);
@@ -107,12 +108,27 @@ public class Singup extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Username");
 
+        jUsername.setBackground(new java.awt.Color(240, 62, 65));
+        jUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        jName.setBackground(new java.awt.Color(240, 62, 65));
+        jName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        jPassword.setBackground(new java.awt.Color(240, 62, 65));
+        jPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+
+        jMale.setBackground(new java.awt.Color(240, 62, 65));
         jMale.setText("Male");
 
+        jFemale.setBackground(new java.awt.Color(240, 62, 65));
         jFemale.setText("Female");
+        jFemale.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jAddress.setBackground(new java.awt.Color(240, 62, 65));
         jAddress.setColumns(20);
         jAddress.setRows(5);
+        jAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jAddress.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane2.setViewportView(jAddress);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -148,12 +164,12 @@ public class Singup extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(jPassword)
                             .addComponent(jUsername)
                             .addComponent(jName)
                             .addComponent(jScrollPane2)
                             .addComponent(jNationality, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jSingupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +218,7 @@ public class Singup extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSingupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,6 +259,9 @@ public class Singup extends javax.swing.JFrame {
         String address = jAddress.getText();
 
         UserInfo user = new UserInfo(name, username, password, gender, nationality, address);
+
+        StoreUserDetails uDetails = new StoreUserDetails();
+        uDetails.fileSingUpUser(user);
 
         JOptionPane.showMessageDialog(this, "Singup Successful!");
 
